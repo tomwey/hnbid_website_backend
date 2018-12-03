@@ -1,0 +1,15 @@
+<div class="project-caption">
+  <div class="brand">
+    <a class="navbar-brand" href="/"><%= image_tag 'logo.png', class:'img-fulid', alt: '' %></a>
+  </div>
+  <div class="content">
+    <h1><%= @project.name %></h1>
+    <p><%= @project.created_at.strftime('%Y-%m-%d %H:%M') %>&emsp;|&emsp;查看: <%= @project.visit %>&emsp;|&emsp;<%= @project.tag_names %></p>
+  </div>
+</div>
+<!-- <div class="container"> -->
+  <div class="project-body">
+    <%= raw @project.body %>
+  </div>
+  
+<!-- </div> -->

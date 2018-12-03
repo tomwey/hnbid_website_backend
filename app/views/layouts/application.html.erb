@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render_page_title %>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <!-- meta name="format-detection" content="telephone=no" -->
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height,shrink-to-fit=no">
+  <%= favicon_link_tag image_path("favicon.ico") %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= yield :styles %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  
+  <%= render 'layouts/header' %>
+    
+  <%= yield %>
+  
+  <%= render 'layouts/footer' %>
+  
+  <!-- Go To Top Link -->
+  <a href="#" class="back-to-top">
+    <i class="lnr lnr-arrow-up"></i>
+  </a>
+
+  <%= javascript_include_tag 'application' %>
+</body>
+</html>
