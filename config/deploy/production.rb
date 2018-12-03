@@ -11,7 +11,7 @@ role :app, %w{deployer@120.132.57.133}
 role :web, %w{deployer@120.132.57.133}
 role :db,  %w{deployer@120.132.57.133}
 
-set :server_name, "afterwind.cn"
+set :server_name, "hnbid.shuiguoshe.com"
 # set :port, "80" # 默认都是80端口
 
 set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
@@ -41,8 +41,8 @@ set :puma_access_log, "#{shared_path}/log/puma_error.log"
 set :puma_error_log, "#{shared_path}/log/puma_access.log"
 set :puma_role, :app
 set :puma_env, fetch(:rack_env, fetch(:rails_env, 'production'))
-set :puma_threads, [4, 12]
-set :puma_workers, 1
+set :puma_threads, [2, 5]
+set :puma_workers, 2
 set :puma_init_active_record, false
 set :puma_preload_app, true
 
