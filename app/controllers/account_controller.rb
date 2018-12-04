@@ -2,7 +2,8 @@
 class AccountController < Devise::RegistrationsController
   protect_from_forgery with: :exception
   
-  layout :layout_by_action
+  layout 'account'
+  
   def layout_by_action
     if %w(edit update).include?(action_name)
       "user_layout"
@@ -17,24 +18,24 @@ class AccountController < Devise::RegistrationsController
   end
   
   def create
-    code = params[:merchant][:code]
+    # code = params[:user][:code]
     
     # 删掉不需要的参数
-    sign_up_params.delete(:code)
+    # sign_up_params.delete(:code)
     sign_up_params.delete(:email)
     
     build_resource(sign_up_params)
     
     valid = resource.valid?
     # ac = AuthCode.where('mobile = ? and code = ? and verified = ?', resource.mobile, code, true).first
-    auth_code = AuthCode.check_code_for(resource.mobile, code)
-    if auth_code.blank?
-      resource.errors.add(:code, "不正确的验证码")
-      valid = false
-    end
+    # auth_code = AuthCode.check_code_for(resource.mobile, code)
+    # if auth_code.blank?
+    #   resource.errors.add(:code, "不正确的验证码")
+    #   valid = false
+    # end
     
     if valid && resource.save
-      auth_code.active
+      # auth_code.active
       
       if resource.active_for_authentication?        
         set_flash_message :notice, :signed_up if is_navigational_format?

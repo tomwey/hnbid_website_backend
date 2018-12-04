@@ -13,17 +13,17 @@ class ApplicationController < ActionController::Base
   protected
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:mobile, :code, :name])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:mobile, :nickname, :password, :password_confirmation, :login])
     end
     
-    def current_user
-      current_merchant
-    end
-    helper_method :current_user
-    
-    def authenticate_user!
-      authenticate_merchant!
-    end
+    # def current_user
+    #   current_merchant
+    # end
+    # helper_method :current_user
+    #
+    # def authenticate_user!
+    #   authenticate_merchant!
+    # end
     
     def timestamp
       @timestamp ||= Time.zone.now.to_i

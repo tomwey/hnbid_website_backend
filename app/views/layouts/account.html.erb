@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
   <!-- non responsive -->
-  <%= stylesheet_link_tag  'front', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
   
   <link rel="shortcut icon" href="<%= asset_path("favicon.ico") %>" />
   
@@ -24,15 +24,15 @@
       <div class="container">
         <div class="navbar-header">
           <a class="brand pull-left" href="/">
-            <%= image_tag 'logo.png', class: 'logo', alt: '得益无线平台' %>
+            <%= image_tag 'logo.png', class: 'logo', alt: '' %>
           </a>
         </div>
         <ul class="nav navbar-nav navbar-right link">
           <li>
             <% if controller_name == 'sessions' and action_name == 'new' %>
-            <a href="<%= new_merchant_registration_path %>">注册</a>
+            <a href="<%= new_user_registration_path %>">注册</a>
             <% elsif controller_name == 'account' and action_name == 'new' %>
-            <a href="<%= new_merchant_session_path %>">登录</a>
+            <a href="<%= new_user_session_path %>">登录</a>
             <% end %>
           </li>
         </ul>
@@ -47,7 +47,7 @@
   <div class="footer">
     <div class="copyright">
       <small>
-          版权所有 &copy; <%= Time.now.year %> 得益 保留所有权利.蜀ICP备14031323号
+          版权所有 &copy; <%= Time.now.year %> 合能集团 保留所有权利.蜀ICP备14031323号
         </small>
     </div>
   </div>

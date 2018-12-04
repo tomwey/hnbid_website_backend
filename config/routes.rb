@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  devise_for :users, path: 'account', controllers: {
+    registrations: :account,
+    sessions: :sessions,
+  }
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # 富文本上传路由
@@ -10,7 +15,9 @@ Rails.application.routes.draw do
   # 网页文档
   resources :pages, path: :p, only: [:show]
   
-  resources :projects, path: :case, only: [:show]
+  resources :users, path: 'u'
+  
+  # resources :projects, path: :case, only: [:show]
   
   # 队列后台管理
   require 'sidekiq/web'

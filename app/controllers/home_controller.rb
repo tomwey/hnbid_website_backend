@@ -4,8 +4,7 @@ class HomeController < ApplicationController
   end
   
   def index
-    @tags = Tag.all
-    @projects = Project.where(opened: true).order('sort asc')
+    
   end
   
 end

@@ -10,16 +10,9 @@
           boolean: :horizontal_boolean
         }) do |f| %>
           
+          <%= f.input :nickname, label: "登录名", placeholder: "20字以内", input_html: { style: "width:300px;" } %>
+          
           <%= f.input :mobile, label: "手机", placeholder: "请输入11位正确的手机号", input_html: { style: "width:300px;", id: 'user_mobile' } %>
-            
-            <div class="auth-code-container">
-              <%= f.input :code, label: "手机验证码", placeholder:"请输入手机验证码", input_html: { style: "width:150px;" }, required: true %>
-              <div class="get-auth-code">
-                <a onclick="App.getCode('<%= SiteConfig.auth_code_api %>',this, '<%= timestamp %>', '<%= api_access_key %>')" class="btn btn-warning" id="auth_code">获取验证码</a>
-              </div>
-            </div>
-            
-            <%= f.input :name, label: "商家名称", placeholder: "20字以内", input_html: { style: "width:300px;" } %>
             
           <%= f.input :password, label: "密码", placeholder: "密码至少6位", input_html: { style: "width:300px;" }, required: true %>
           <%= f.input :password_confirmation, label: "确认密码", placeholder: "请确保两次密码输入一致", input_html: { style: "width:300px;" }, required: true %>
