@@ -44,6 +44,10 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+    
+    def set_menu_active(current)
+      @current = current
+    end
   
     # 检查用户账号是否被冻结
     def check_user
@@ -54,12 +58,12 @@ class ApplicationController < ActionController::Base
     end
     
     # 要求实名认证
-    def require_auth
-      unless current_user.authed?
-        flash[:error] = "您的账号还未进行实名认证"
-        redirect_to portal_user_auth_path
-      end
-    end
+    # def require_auth
+    #   unless current_user.authed?
+    #     flash[:error] = "您的账号还未进行实名认证"
+    #     redirect_to portal_user_auth_path
+    #   end
+    # end
     
     # 检查用户是否已经完善了资料
     # def check_more_profile
@@ -68,40 +72,21 @@ class ApplicationController < ActionController::Base
     #   end
     # end
     
-    # def after_sign_up_path_for(resource)
-    #   # if resource.account_type.blank?
-    #   #   # 还未完善资料
-    #   #   more_profile_path
-    #   # else
-    #     portal_root_path
-    #   # end
-    # end
-    #
-    # def after_update_path_for(resource)
-    #   home_user_path
-    # end
-    #
-    # def after_sign_in_path_for(resource)
-    #   if resource.class == Admin
-    #     cpanel_root_path
-    #   else
-    #     portal_root_path
-    #     # if resource.account_type.blank?
-    #     #   # 还未完善资料
-    #     #   return more_profile_path
-    #     # else
-    #     #   return portal_root_path
-    #     # end
-    #   end
-    # end
-    #
-    # def after_sign_out_path_for(resource)
-    #   # puts resource.to_s
-    #   if resource.to_s == 'admin'
-    #     new_admin_session_path
-    #   else
-    #     new_merchant_session_path
-    #   end
-    # end
+    def after_sign_up_path_for(resource)
+      home_user_path(current_user.login)
+    end
+
+    def after_sign_in_path_for(resource)
+      home_user_path(current_user.login)
+    end
+
+    def after_sign_out_path_for(resource)
+      if resource.to_s == 'admin_user'
+        # puts '123444'
+        new_admin_user_session_path
+      else
+        new_user_session_path
+      end
+    end
   
 end

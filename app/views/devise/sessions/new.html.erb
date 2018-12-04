@@ -1,3 +1,4 @@
+<%= notice_message %>
 <div class="row">
   <div class="col-md-8 col-sm-6">
     <div class="cover-image">
@@ -8,7 +9,6 @@
     <div class="form-wrap">
       <h2 class="title">登录</h2>
       <div class="form-content">
-        <%= notice_message %>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' },
           wrapper: :horizontal_form,
           wrapper_mappings: {

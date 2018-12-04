@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render_page_title %>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height,shrink-to-fit=no">
+  <%= favicon_link_tag image_path("favicon.ico") %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  
+  <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+  
+  <%= yield :styles %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= render 'layouts/header' %>
+  
+  <div class="container">
+    <div class="row user-home-wrap">
+      <div class="col-sm-2">
+        <div class="menu-wrap">
+          <ul class="menu">
+            <li class="menu-item <%= @current == 'user_home' ? 'active' : '' %>"><%= link_to '我的账户', home_user_path %></li>
+            <li class="menu-item <%= @current == 'user_bids' ? 'active' : '' %>"><%= link_to '我的投标', bids_user_path %></li>
+            <li class="menu-item <%= @current == 'user_bid_results' ? 'active' : '' %>"><%= link_to '我的中标', bid_results_user_path %></li>
+            <li class="menu-item <%= @current == 'messages' ? 'active' : '' %>"><%= link_to '消息中心', messages_user_path %></li>
+            <li class="menu-item <%= @current == 'user_company' ? 'active' : '' %>"><%= link_to '企业认证', company_user_path %></li>
+            <li class="menu-item <%= @current == 'profile' ? 'active' : '' %>"><%= link_to '基本资料', profile_user_path %></li>
+            <li class="menu-item <%= @current == 'edit_pwd' ? 'active' : '' %>"><%= link_to '修改密码', edit_pwd_user_path %></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-10">
+        <%= yield %>
+      </div>
+    </div>
+    
+  </div>
+  
+  <%= render 'layouts/footer' %>
+  
+  <%= javascript_include_tag 'application' %>
+</body>
+</html>

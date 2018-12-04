@@ -15,7 +15,22 @@ Rails.application.routes.draw do
   # 网页文档
   resources :pages, path: :p, only: [:show]
   
-  resources :users, path: 'u'
+  resources :projects, only: [:index, :show]
+  resources :bids,     only: [:index, :show]
+  
+  get 'about' => 'home#about', as: :about
+  
+  resources :users, path: 'u' do
+    member do
+      get 'home'
+      get 'bids'
+      get 'bid_results'
+      get 'messages'
+      get 'company'
+      get 'profile'
+      get 'edit_pwd'
+    end
+  end
   
   # resources :projects, path: :case, only: [:show]
   
