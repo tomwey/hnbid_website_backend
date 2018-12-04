@@ -1,47 +1,82 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="user-login-form">
-      <%= notice_message %>
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' },
-        wrapper: :horizontal_form,
-        wrapper_mappings: {
-          check_boxes: :horizontal_radio_and_checkboxes,
-          radio_buttons: :horizontal_radio_and_checkboxes,
-          file: :horizontal_file_input,
-          boolean: :horizontal_boolean
-        }) do |f| %>
-          
-          <%= f.input :login, label: "账号", placeholder: "输入手机号/登录名" %>
-          <%= f.input :password, label: "密码", placeholder: "输入密码", required: true %>
-          
-          <% if devise_mapping.rememberable? -%>
-          <div class="form-group">
-              <div class="col-sm-offset-3 col-sm-9 clearfix">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="checkbox">
-                      <label>
-                        <%= f.check_box :remember_me %> 记住我
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="forget-password">
-                      <%= link_to '忘记密码？', '#' %>
-                    </div>
-                  </div>
-                </div>
+  <div class="col-md-8 col-sm-6">
+    <div class="cover-image">
+      <%= image_tag 'account_cover.png', class: 'img-responsive' %>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <div class="form-wrap">
+      <h2 class="title">登录</h2>
+      <div class="form-content">
+        <%= notice_message %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal' },
+          wrapper: :horizontal_form,
+          wrapper_mappings: {
+            check_boxes: :horizontal_radio_and_checkboxes,
+            radio_buttons: :horizontal_radio_and_checkboxes,
+            file: :horizontal_file_input,
+            boolean: :horizontal_boolean
+          }) do |f| %>
+  
+            <!-- <%= f.input :login, label: "账号", placeholder: "输入手机号/登录名" %>
+            <%= f.input :password, label: "密码", placeholder: "输入密码", required: true %> -->
+        
+            <div class="form-group">
+              <label class="sr-only" for="login">账号</label>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                <%= f.text_field :login, class: 'form-control', placeholder: '输入手机号/登录名' %>
+                <!-- <input type="text" name class="form-control" id="login" placeholder="输入手机号/登录名"> -->
+                <!-- <div class="input-group-addon">.00</div> -->
               </div>
-          </div>
-          <% end -%>
-          
-          <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-              <button type="submit" class="btn btn-success" data-disable-with="正在提交">登录</button>
             </div>
-          </div>
+        
+            <div class="form-group">
+              <label class="sr-only" for="login">密码</label>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                <%= f.password_field :password, class: 'form-control', placeholder: '输入密码' %>
+                <!-- <input type="text" name class="form-control" id="login" placeholder="输入手机号/登录名"> -->
+                <!-- <div class="input-group-addon">.00</div> -->
+              </div>
+            </div>
+  
+            <% if devise_mapping.rememberable? -%>
+            <div class="form-group">
+                <!-- <div class="col-sm-offset-3 col-sm-9 clearfix">
+                  <div class="row">
+                    <div class="col-sm-6"> -->
+                      <div class="checkbox">
+                        <label>
+                          <%= f.check_box :remember_me %> 记住我
+                        </label>
+                      </div>
+                    <!-- </div> -->
+                    <!-- <div class="col-sm-6">
+                      <div class="forget-password">
+                        <%= link_to '忘记密码？', '#' %>
+                      </div>
+                    </div> -->
+                  <!-- </div>
+                </div> -->
+            </div>
+            <% end -%>
+  
+            <div class="form-group">
+              <div class="controls">
+                <button type="submit" class="btn btn-success btn-block" data-disable-with="正在提交">登录</button>
+              </div>
           
-      <% end %>
+            </div>
+        
+            <div class="form-group">
+              <div class="controls">
+                没有账号？<%= link_to '立即注册', new_user_registration_path, class: 'custom-link' %>
+              </div>
+            </div>
+  
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
