@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   # 网页文档
   resources :pages, path: :p, only: [:show]
   
-  resources :projects, only: [:index, :show]
-  resources :bids,     only: [:index, :show]
+  resources :projects,  only: [:index, :show]
+  resources :bids,      only: [:index, :show]
+  resources :companies, only: [:index, :show]
   
   get 'about' => 'home#about', as: :about
   
