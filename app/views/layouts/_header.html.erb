@@ -1,11 +1,11 @@
     <!-- Header Section Start -->
-    <header id="hero-area" data-stellar-background-ratio="0.5">    
+    <header id="hero-area">    
       <!-- Navbar Start -->
       <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <a class="navbar-brand"><%= image_tag 'logo-60.png', class:'img-fulid', alt: '' %></a>
+            <a class="navbar-brand" href="/"><%= image_tag 'logo-60.png', class:'img-fulid', alt: '' %></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
               <i class="lnr lnr-menu"></i>
             </button>
@@ -16,29 +16,24 @@
                 <a class="nav-link page-scroll" href="#hero-area">首页</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#services">招标计划</a>
+                <a class="nav-link page-scroll" href="#about">合能集团</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#cases">优质供应商</a>
+                <a class="nav-link" href="">招标计划</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">招标公告</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#cases">合作伙伴</a>
               </li>
               <!-- <li class="nav-item">
                 <a class="nav-link page-scroll" href="#partners">服务客户</a>
               </li> -->
-              <li class="nav-item">
-                <a class="nav-link page-scroll" href="#about">关于我们</a>
-              </li>
+              
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#contact">联系我们</a>
               </li>
-              <% if user_signed_in? %>
-              <li class="nav-item">
-                <a class="nav-link" href="<%= portal_root_path %>">供应商后台管理</a>
-              </li>
-              <% else %>
-              <li class="nav-item">
-                <a class="nav-link" href="<%= new_user_session_path %>">供应商登录</a>
-              </li>
-              <% end %>
             </ul>
           </div>
         </div>
@@ -49,17 +44,21 @@
               <a class="page-scroll" href="#hero-area">首页</a>
             </li>
             <li>
+              <a class="page-scroll" href="#about">合能集团</a>
+            </li>
+            <li>
               <a class="page-scroll" href="#services">招标计划</a>
             </li>
             <li>
-              <a class="page-scroll" href="#cases">优质供应商</a>
+              <a class="page-scroll" href="#services">招标公告</a>
+            </li>
+            <li>
+              <a class="page-scroll" href="#cases">合作伙伴</a>
             </li>
             <!-- <li>
               <a class="page-scroll" href="#partners">服务客户</a>
             </li> -->
-            <li>
-              <a class="page-scroll" href="#about">关于我们</a>
-            </li>
+            
             <li>
               <a class="page-scroll" href="#contact">联系我们</a>
             </li>
@@ -68,7 +67,83 @@
 
       </nav>
       <!-- Navbar End -->   
-      <div class="container">      
+      <div class="topbar-content-area">
+        <div class="container">
+          <div class="topbar-content-wrap">
+            <div class="carousel-wrap">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <%= image_tag 'banner1.jpg', class: 'd-block w-100 custom-img-height' %>
+                  </div>
+                  <div class="carousel-item">
+                    <%= image_tag 'banner2.jpg', class: 'd-block w-100 custom-img-height' %>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+            <div class="login-wrap">
+              <h2 class="title">供应商登录</h2>
+              <div class="login-form">
+              
+              <%= simple_form_for(User.new, as: :user, url: session_path('user'), html: { class: 'form-horizontal' },
+                wrapper: :horizontal_form,
+                wrapper_mappings: {
+                  check_boxes: :horizontal_radio_and_checkboxes,
+                  radio_buttons: :horizontal_radio_and_checkboxes,
+                  file: :horizontal_file_input,
+                  boolean: :horizontal_boolean
+                }) do |f| %>
+  
+                  <div class="form-group">
+                    <!-- <label class="sr-only" for="login">账号</label> -->
+                    <!-- <div class="input-group"> -->
+                      <!-- <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div> -->
+                      <%= f.text_field :login, class: 'form-control', placeholder: '输入手机号/登录名' %>
+                    <!-- </div> -->
+                  </div>
+        
+                  <div class="form-group">
+                    <!-- <label class="sr-only" for="login">密码</label> -->
+                    <!-- <div class="input-group"> -->
+                      <!-- <div class="input-group-addon"><i class="oi oi-lock-locked"></i></div> -->
+                      <%= f.password_field :password, class: 'form-control', placeholder: '输入密码' %>
+                    <!-- </div> -->
+                  </div>
+  
+                  <div class="form-group">
+                    <div class="controls">
+                      <button type="submit" class="btn btn-success btn-block" data-disable-with="正在提交">登录</button>
+                    </div>
+          
+                  </div>
+        
+                  <div class="form-group">
+                    <div class="controls">
+                      <span style="color: #333;">没有账号？</span><%= link_to '立即注册', new_user_registration_path, class: 'custom-link' %>
+                    </div>
+                  </div>
+  
+              <% end %>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+      
+      <!-- <div class="container">
         <div class="row justify-content-md-center">
           <div class="col-md-10">
             <div class="contents text-center">
@@ -77,7 +152,49 @@
               <div><%= link_to '供应商入驻', new_user_registration_path, class: 'btn btn-common btn-lg' %></div>
             </div>
           </div>
-        </div> 
-      </div>           
+        </div>
+      </div> -->
+      
+      <!-- div class="login-panel">
+        <%= simple_form_for(User.new, as: :user, url: session_path('user'), html: { class: 'form-horizontal' },
+          wrapper: :horizontal_form,
+          wrapper_mappings: {
+            check_boxes: :horizontal_radio_and_checkboxes,
+            radio_buttons: :horizontal_radio_and_checkboxes,
+            file: :horizontal_file_input,
+            boolean: :horizontal_boolean
+          }) do |f| %>
+  
+            <div class="form-group">
+              <label class="sr-only" for="login">账号</label>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                <%= f.text_field :login, class: 'form-control', placeholder: '输入手机号/登录名' %>
+              </div>
+            </div>
+        
+            <div class="form-group">
+              <label class="sr-only" for="login">密码</label>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="oi oi-lock-locked"></i></div>
+                <%= f.password_field :password, class: 'form-control', placeholder: '输入密码' %>
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <div class="controls">
+                <button type="submit" class="btn btn-success btn-block" data-disable-with="正在提交">登录</button>
+              </div>
+          
+            </div>
+        
+            <div class="form-group">
+              <div class="controls">
+                没有账号？<%= link_to '立即注册', new_user_registration_path, class: 'custom-link' %>
+              </div>
+            </div>
+  
+        <% end %>
+      </div -->         
     </header>
     <!-- Header Section End --> 

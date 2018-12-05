@@ -4,13 +4,13 @@ class AccountController < Devise::RegistrationsController
   
   layout 'account'
   
-  def layout_by_action
-    if %w(edit update).include?(action_name)
-      "user_layout"
-    elsif %w(new create more_profile).include?(action_name)
-      "account"
-    end
-  end
+  # def layout_by_action
+  #   if %w(edit update).include?(action_name)
+  #     "user_layout"
+  #   elsif %w(new create more_profile).include?(action_name)
+  #     "account"
+  #   end
+  # end
   
   def new
     @action = "注册"

@@ -19,8 +19,4 @@
 //= require mate-tpl/jquery.magnific-popup.min
 //= require mate-tpl/waypoints.min
 //= require mate-tpl/main
-
-//= require redactor-rails/redactor
-//= require redactor-rails/config
-//= require redactor-rails/langs/zh_cn
-//= require redactor-rails/plugins
+//= require_self

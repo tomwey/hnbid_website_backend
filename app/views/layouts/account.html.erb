@@ -6,9 +6,9 @@
   <meta name="keywords" content="<%= @meta_keywords %>" />
   <meta name="description" content="<%= @meta_description %>" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- non responsive -->
-  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag  'account', 'data-turbolinks-track': 'reload' %>
   
   <link rel="shortcut icon" href="<%= asset_path("favicon.ico") %>" />
   
@@ -21,7 +21,7 @@
 <body>      
   <div class="logo-wrap">
     <div class="container">
-      <a href="<%= root_path %>">
+      <a href="/">
         <%= image_tag 'logo.png', class: 'logo' %>
       </a>
       <span class="title"><%= @action %></span>
@@ -42,7 +42,7 @@
     </div>
   </div>
   
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'account', 'data-turbolinks-track': 'reload' %>
   <%= yield :scripts %>
 </body>
 </html>
