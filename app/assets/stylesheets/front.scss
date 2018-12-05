@@ -16,46 +16,66 @@
 @import "main";
 @import "responsive";
 
+.user-info {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e6e6e6;
+  text-align: center;
+  
+  .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  .name {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .logout-link {
+    color: #666;
+  }
+}
+
 .user-home-wrap {
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 .menu-wrap {
   background: #f5f5f5;
   width: 100%;
-  min-height: 100%;
+//  height: calc(100% - 80px);
+//  min-height: 100%;
+  padding-top: 20px;
   .menu {
     list-style: none;
     margin: 0;
     padding: 0;
-    padding-bottom: 80px;
-//    border-top: 1px solid #ccc;
+    padding-bottom: 60px;
     color: #666;
-//    border: 1px solid #ccc;
     .menu-item {
-//      border-bottom: 1px solid #ccc;
-//      padding: 10px;
       a {
         display: block;
         width: 100%;
-        height: 100%;
         color: #333;
         padding: 10px 15px;
         text-decoration: none;
-        &:hover {
+        &:hover,&:focus {
           color: rgb(231,90,22);
-          border-left: 2px solid rgb(231,90,22);
+          border-left: 1px solid rgb(231,90,22);
           background: white;
         }
       }
       &.active {
-        border-left: 2px solid rgb(231,90,22);
+        border-left: 1px solid rgb(231,90,22);
         background: white;
         a {
           color: rgb(231,90,22);
         }
         
-        &:hover {
+        &:hover,&:focus {
           border-left: 0;
         }
       }

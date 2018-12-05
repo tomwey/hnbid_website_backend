@@ -25,14 +25,19 @@
     <div class="row user-home-wrap">
       <div class="col-sm-2">
         <div class="menu-wrap">
+          <div class="user-info">
+            <%= image_tag 'avatar/big.png', class: 'avatar' %>
+            <p class="name"><%= current_user.login %></p>
+            <%= link_to '退出登录', destroy_user_session_path, method: :delete, class: 'logout-link' %>
+          </div>
           <ul class="menu">
-            <li class="menu-item <%= @current == 'user_home' ? 'active' : '' %>"><%= link_to '我的账户', '' %></li>
-            <li class="menu-item <%= @current == 'user_bids' ? 'active' : '' %>"><%= link_to '我的投标', '' %></li>
-            <li class="menu-item <%= @current == 'user_bid_results' ? 'active' : '' %>"><%= link_to '我的中标', '' %></li>
-            <li class="menu-item <%= @current == 'messages' ? 'active' : '' %>"><%= link_to '消息中心', '' %></li>
-            <li class="menu-item <%= @current == 'user_company' ? 'active' : '' %>"><%= link_to '企业认证', '' %></li>
-            <li class="menu-item <%= @current == 'profile' ? 'active' : '' %>"><%= link_to '基本资料', '' %></li>
-            <li class="menu-item <%= @current == 'edit_pwd' ? 'active' : '' %>"><%= link_to '修改密码', '' %></li>
+            <li class="menu-item <%= @current == 'user_home' ? 'active' : '' %>"><%= link_to '控制台', home_user_path %></li>
+            <li class="menu-item <%= @current == 'user_bids' ? 'active' : '' %>"><%= link_to '我的投标', bids_user_path %></li>
+            <li class="menu-item <%= @current == 'user_bid_results' ? 'active' : '' %>"><%= link_to '我的中标', bid_results_user_path %></li>
+            <li class="menu-item <%= @current == 'messages' ? 'active' : '' %>"><%= link_to '消息中心', messages_user_path %></li>
+            <li class="menu-item <%= @current == 'user_company' ? 'active' : '' %>"><%= link_to '企业认证', company_user_path %></li>
+            <li class="menu-item <%= @current == 'profile' ? 'active' : '' %>"><%= link_to '基本资料', profile_user_path %></li>
+            <li class="menu-item <%= @current == 'edit_pwd' ? 'active' : '' %>"><%= link_to '修改密码', edit_pwd_user_path %></li>
           </ul>
         </div>
       </div>

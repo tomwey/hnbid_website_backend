@@ -67,63 +67,7 @@
 
       </nav>
       <!-- Navbar End -->
-      
-      <% if content_for? :subnav_content %>
       <%= yield :subnav_content %>
-      <% end %>
       
-      <!-- <div class="container">
-        <div class="row justify-content-md-center">
-          <div class="col-md-10">
-            <div class="contents text-center">
-              <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">官方一站式招投标平台</h1>
-              <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">公平、公正、公开透明操作</p>
-              <div><%= link_to '供应商入驻', new_user_registration_path, class: 'btn btn-common btn-lg' %></div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      
-      <!-- div class="login-panel">
-        <%= simple_form_for(User.new, as: :user, url: session_path('user'), html: { class: 'form-horizontal' },
-          wrapper: :horizontal_form,
-          wrapper_mappings: {
-            check_boxes: :horizontal_radio_and_checkboxes,
-            radio_buttons: :horizontal_radio_and_checkboxes,
-            file: :horizontal_file_input,
-            boolean: :horizontal_boolean
-          }) do |f| %>
-  
-            <div class="form-group">
-              <label class="sr-only" for="login">账号</label>
-              <div class="input-group">
-                <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
-                <%= f.text_field :login, class: 'form-control', placeholder: '输入手机号/登录名' %>
-              </div>
-            </div>
-        
-            <div class="form-group">
-              <label class="sr-only" for="login">密码</label>
-              <div class="input-group">
-                <div class="input-group-addon"><i class="oi oi-lock-locked"></i></div>
-                <%= f.password_field :password, class: 'form-control', placeholder: '输入密码' %>
-              </div>
-            </div>
-  
-            <div class="form-group">
-              <div class="controls">
-                <button type="submit" class="btn btn-success btn-block" data-disable-with="正在提交">登录</button>
-              </div>
-          
-            </div>
-        
-            <div class="form-group">
-              <div class="controls">
-                没有账号？<%= link_to '立即注册', new_user_registration_path, class: 'custom-link' %>
-              </div>
-            </div>
-  
-        <% end %>
-      </div -->         
     </header>
     <!-- Header Section End --> 

@@ -67,7 +67,7 @@ $green: rgb(231,90,22);
 
   body {
     margin-bottom: 60px;
-    padding-top: 60px;
+//    padding-top: 60px;
   }
 
   .logo {
@@ -452,6 +452,7 @@ $green: rgb(231,90,22);
       }
       
       .logined-name {
+        margin-top: 20px;
         font-size: 16px;
         color: #333;
 //        margin-bottom: 60px;
@@ -459,7 +460,7 @@ $green: rgb(231,90,22);
       }
       
       .logined-tips {
-        font-size: 20px;
+//        font-size: 20px;
         color: #333;
         text-align: center;
         margin: 30px 0;

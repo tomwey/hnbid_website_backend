@@ -23,6 +23,13 @@ Rails.application.routes.draw do
   
   resources :users, path: 'u' do
     member do
+      get 'home'
+      get 'bids'
+      get 'bid_results'
+      get 'messages'
+      get 'company'
+      get 'profile'
+      get 'edit_pwd'
       get 'new_company'
       post 'save_company'
     end
@@ -30,9 +37,9 @@ Rails.application.routes.draw do
   # get  'account/company/new' => 'account#new_company', as: :new_account_company
   # post 'account/company'     => 'account#save_company', as: :save_account_company
   
-  namespace :portal do 
-    root 'home#index'
-  end
+  # namespace :portal do
+  #   root 'home#index'
+  # end
   
   # resources :projects, path: :case, only: [:show]
   
