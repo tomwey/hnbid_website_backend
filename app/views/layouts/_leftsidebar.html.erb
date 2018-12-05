@@ -1,0 +1,67 @@
+<nav class="navbar-default navbar-static-side" role="navigation" style="display: block;">
+  <div class="nav-close"><i class="fa fa-times-circle"></i></div>
+  <div class="slimScrollDiv" style="position: relative; width: auto; height: 100%;">
+    <div class="sidebar-collapse" style="width: auto; height: 100%;">
+      <ul class="nav" id="side-menu" style="display: block;">
+        <li class="nav-header">
+          <div class="dropdown profile-element">
+            <span><img alt="image" class="img-circle" src="http://ozwpnu2pa.bkt.clouddn.com/profile_small.jpg"></span>
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <span class="clear">
+              <span class="block m-t-xs"><strong class="font-bold"><%= current_user.login %></strong></span>
+              <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+                  </span>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+              <li>
+                <a class="J_menuItem" href="" data-index="1">个人资料</a>
+              </li>
+              <li>
+                <a class="J_menuItem" href="" data-index="2">联系我们</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to '安全退出', destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </div>
+          <div class="logo-element">HN</div>
+        </li>
+        <li class="">
+            <a class="J_menuItem" href="<%= portal_root_path %>" data-index="8"><i class="fa fa-home"></i>
+                <span class="nav-label">控制台</span></a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-edit"></i>
+            <span class="nav-label">招标管理</span> <span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level">
+            <li><a class="J_menuItem" href="">招标公告</a></li>
+            <li><a class="J_menuItem" href="">中标结果</a></li>
+            <li><a class="J_menuItem" href="">招标文件管理</a></li>
+          </ul>
+        </li>
+        <li>
+          <a class="J_menuItem" href="" data-index="8">
+            <i class="fa fa-envelope"></i>
+            <span class="nav-label">消息中心</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-edit"></i>
+            <span class="nav-label">账号设置</span> <span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level">
+            <li><a class="J_menuItem" href="">企业认证</a></li>
+            <li><a class="J_menuItem" href="">基本资料</a></li>
+            <li><a class="J_menuItem" href="">修改密码</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 4px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 718px;"></div>
+    <div class="slimScrollRail" style="width: 4px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.9; z-index: 90; right: 1px;"></div>
+  </div>
+</nav>

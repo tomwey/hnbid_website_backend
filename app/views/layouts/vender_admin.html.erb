@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render_page_title %>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height,shrink-to-fit=no">
+  <%= favicon_link_tag image_path("favicon.ico") %>
+  <%= stylesheet_link_tag    'vender_admin', media: 'all' %>
+  
+  <!--[if lt IE 9]>
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+  
+  <%= yield :styles %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+
+  <div id="wrapper">
+    <!-- 左侧导航开始 -->
+    <%= render 'layouts/leftsidebar' %>
+    <!-- 左侧导航结束 -->
+    
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+      <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+          <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>
+            </a>
+            <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+              <div class="form-group">
+                <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
+              </div>
+            </form>
+          </div>
+        </nav>
+      </div>
+      <div class="row content-tabs">
+        <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i></button>
+        <nav class="page-tabs J_menuTabs">
+          <div class="page-tabs-content">
+            <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
+          </div>
+        </nav>
+        <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i></button>
+        <div class="btn-group roll-nav roll-right">
+            <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+            </button>
+            <ul role="menu" class="dropdown-menu dropdown-menu-right">
+              <li class="J_tabShowActive"><a>定位当前选项卡</a></li>
+              <li class="divider"></li>
+              <li class="J_tabCloseAll"><a>关闭全部选项卡</a></li>
+              <li class="J_tabCloseOther"><a>关闭其他选项卡</a></li>
+            </ul>
+          </div>
+        <!-- <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a> -->
+        <%= link_to destroy_user_session_path, method: :delete, class: "roll-nav roll-right J_tabExit" do  %>
+          <i class="fa fa fa-sign-out"></i> 退出
+        <% end %>
+      </div>
+      <!-- 主内容区域开始 -->
+      <div class="row J_mainContent" id="content-main">
+        <%= yield %>
+      </div>
+      <!-- 主内容区域结束 -->
+      
+      <!-- Footer -->
+      <div class="footer">
+          <div class="pull-right">&copy; <%= Time.now.year %>
+              <a href="<%= root_path %>" target="_blank">合能集团</a>
+          </div>
+      </div>
+      <!-- Footer -->
+      
+    </div>
+    <!--右侧部分结束-->
+  </div>
+  
+  <%= javascript_include_tag 'vender_admin' %>
+  <%= yield :scripts %>
+</body>
+</html>

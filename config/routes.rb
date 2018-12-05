@@ -23,14 +23,13 @@ Rails.application.routes.draw do
   
   resources :users, path: 'u' do
     member do
-      get 'home'
-      get 'bids'
-      get 'bid_results'
-      get 'messages'
-      get 'company'
-      get 'profile'
-      get 'edit_pwd'
+      get 'new_company'
+      post 'save_company'
     end
+  end
+  
+  namespace :portal do 
+    root 'home#index'
   end
   
   # resources :projects, path: :case, only: [:show]
