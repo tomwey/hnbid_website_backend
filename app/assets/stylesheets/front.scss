@@ -17,7 +17,7 @@
 @import "responsive";
 
 .user-info {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #e6e6e6;
   text-align: center;
   
@@ -46,8 +46,6 @@
 .menu-wrap {
   background: #f5f5f5;
   width: 100%;
-//  height: calc(100% - 80px);
-//  min-height: 100%;
   padding-top: 20px;
   .menu {
     list-style: none;
@@ -81,4 +79,8 @@
       }
     }
   }
+}
+
+.right-content-wrap {
+  padding: 15px 0;
 }
