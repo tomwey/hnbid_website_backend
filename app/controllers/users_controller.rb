@@ -1,14 +1,51 @@
+# coding: utf-8
 class UsersController < ApplicationController
   before_filter :require_user
   
-  layout 'user_layout'
+  layout 'account'
   
   def home
     
   end
   
   def new_company
+    session[:company_params] ||= {}
     
+    @company = Company.new(session[:company_params])
+    @company.current_step = session[:company_step]
+    @action = '供应商资料录入'
+  end
+  
+  def save_company
+    # puts params[:company]
+    session[:company_params].deep_merge!(params[:company]) if params[:company]
+    @company = Company.new(session[:company_params])
+    @company.current_step = session[:company_step]
+    puts '-------------------'
+    puts @company
+    puts '-------------------'
+    if @company.valid?
+      if params[:back_button]
+        @company.previous_step
+      elsif @company.last_step?
+        @company.save if @company.all_valid?
+      else
+        @company.next_step
+      end
+      session[:company_step] = @company.current_step
+      puts session[:company_step]
+    else
+      puts 'dddddd'
+    end
+    
+    # redirect_to portal_root_path
+    if @company.new_record?
+      render "new_company"
+    else
+      session[:company_step] = session[:company_params] = nil
+      flash[:notice] = "保存成功"
+      redirect_to portal_root_path
+    end
   end
   
   # def home

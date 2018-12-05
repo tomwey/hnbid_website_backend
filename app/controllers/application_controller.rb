@@ -85,7 +85,7 @@ class ApplicationController < ActionController::Base
         # puts '123444'
         new_admin_user_session_path
       else
-        new_user_session_path
+        root_path
       end
     end
   

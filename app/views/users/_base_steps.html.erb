@@ -1,0 +1,20 @@
+<%= f.input :name, placeholder: "输入公司名称" %>
+<%= f.input :comp_nature, as: :select, collection: ['国企','私企', '合资', '外企', '个人'], prompt: '请选择' %>
+<%= f.input :business_license_no, placeholder: '输入统一信用号' %>
+<%= f.input :address, placeholder: '输入详细地址' %>
+<%= f.input :found_on, as: :string, placeholder: '2018-10-10' %>
+<%= f.input :reg_fund, placeholder: '例如: 100万' %>
+<%= f.input :reg_address, placeholder: '输入详细地址' %>
+<%= f.input :real_fund_man, placeholder: '输入实际出资人' %>
+<%= f.input :tax_type, as: :select, collection: ['一般纳税人','小规模纳税人'], prompt: '请选择' %>
+<%= f.input :website, placeholder: '例如: www.heneng.cn' %>
+<%= f.input :quality_cert, placeholder: '质量认证说明' %>
+<%= f.input :legal_man_name, placeholder: '请输入' %>
+<%= f.input :legal_man_tel, placeholder: '请输入' %>
+<%= f.input :legal_man_card_type, as: :select, collection: ['身份证','驾驶证', '军官证'], prompt: '请选择' %>
+<%= f.input :legal_man_card_no, placeholder: '请输入' %>
+
+<%= f.input :contact_name %>
+<%= f.input :contact_tel %>
+
+<%= f.input :business_scope, input_html: { rows: 6 } %>

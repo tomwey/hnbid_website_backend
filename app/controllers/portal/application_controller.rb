@@ -1,6 +1,6 @@
 class Portal::ApplicationController < ApplicationController
   # include Pundit
-  layout 'vender_admin'
+  layout 'user_layout'
   
   before_filter :require_user
   before_filter :check_user

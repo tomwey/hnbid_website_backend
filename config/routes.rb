@@ -27,6 +27,8 @@ Rails.application.routes.draw do
       post 'save_company'
     end
   end
+  # get  'account/company/new' => 'account#new_company', as: :new_account_company
+  # post 'account/company'     => 'account#save_company', as: :save_account_company
   
   namespace :portal do 
     root 'home#index'

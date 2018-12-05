@@ -1,0 +1,90 @@
+<div class="signup-form-wrap">
+  <div class="steps-wrap">
+    <div class="step <%= @company.current_step == 'base' ? 'active' : '' %>">
+      <span class="name">1 基本信息</span>
+    </div>
+    <div class="line"></div>
+    <div class="step <%= @company.current_step == 'services' ? 'active' : '' %>">
+      <span class="name">2 服务类型</span>
+    </div>
+    
+    <div class="line"></div>
+    <div class="step <%= @company.current_step == 'performance' ? 'active' : '' %>">
+      <span class="name">3 历史业绩</span>
+    </div>
+    <div class="line"></div>
+    <div class="step <%= @company.current_step == 'license' ? 'active' : '' %>">
+      <span class="name">4 资质及证照</span>
+    </div>
+    
+  </div>
+<div class="row form-row">
+  <div class="col-md-8 col-md-offset-2">
+      <div class="form-content">
+        <%= simple_form_for(@company, as: 'company', url: save_company_user_path, html: { class: 'form-horizontal', id: 'signup_form' },
+          wrapper: :horizontal_form,
+          wrapper_mappings: {
+            check_boxes: :horizontal_radio_and_checkboxes,
+            radio_buttons: :horizontal_radio_and_checkboxes,
+            file: :horizontal_file_input,
+            boolean: :horizontal_boolean
+          }) do |f| %>
+            
+            <%= render "#{@company.current_step}_steps", f: f %>
+            
+            <!-- <%= f.input :name, placeholder: "输入公司名称" %>
+            <%= f.input :icon %>
+            <%= f.input :comp_nature, as: :select, collection: ['国企','私企', '合资', '外企', '个人'], prompt: '请选择' %>
+            <%= f.input :business_license_no, placeholder: '输入统一信用号' %>
+            <%= f.input :business_license_image %>
+            <%= f.input :safe_license_image %>
+            <%= f.input :address, placeholder: '输入详细地址' %>
+            <%= f.input :found_on, as: :string, placeholder: '2018-10-10' %>
+            <%= f.input :reg_fund, placeholder: '例如: 100万' %>
+            <%= f.input :reg_address, placeholder: '输入详细地址' %>
+            <%= f.input :real_fund_man, placeholder: '输入实际出资人' %>
+            <%= f.input :tax_type, as: :select, collection: ['一般纳税人','小规模纳税人'], prompt: '请选择' %>
+            <%= f.input :website, placeholder: '例如: www.heneng.cn' %>
+            <%= f.input :quality_cert, placeholder: '质量认证说明' %>
+            <%= f.input :legal_man_name, placeholder: '请输入' %>
+            <%= f.input :legal_man_tel, placeholder: '请输入' %>
+            <%= f.input :legal_man_card_type, as: :select, collection: ['身份证','驾驶证', '军官证'], prompt: '请选择' %>
+            <%= f.input :legal_man_card_no, placeholder: '请输入' %>
+
+            <%= f.input :contact_name %>
+            <%= f.input :contact_tel %>
+
+            <%= f.input :business_scope, input_html: { rows: 6 } %>
+            <%= f.input :right_area %>
+            <%= f.input :service_type, as: :select, collection: ['',''], prompt: '请选择' %>
+
+            <%= f.input :business_level %>
+            <%= f.input :year_output_money %>
+            <%= f.input :year_sale_money %>
+
+            <%= f.input :memo, input_html: { rows: 6 } %> -->
+              
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <button type="submit" class="btn btn-success"> 
+                  
+                  <%= @company.last_step? ? '保存' : '下一步'  %>
+                </button>
+                <% unless @company.first_step? %>
+                <button type="submit" class="btn btn-dark" name="back_button">上一步</button>
+                <% end %>
+              </div>
+            </div>
+      
+        <% end %>
+      </div>
+    </div>
+    
+    <!-- <div class="col-md-4">
+      <div class="user-reg-info">
+        <h3>已经注册？</h3>
+        <%= link_to "立即登录", new_user_session_path, class: "btn btn-success" %>
+      </div>
+    </div> -->
+  </div>
+</div>
