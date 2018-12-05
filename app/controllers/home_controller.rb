@@ -4,11 +4,8 @@ class HomeController < ApplicationController
   end
   
   def index
-    set_menu_active('home')
-  end
-  
-  def about
-    set_menu_active('about')
+    @tags = []
+    @projects = []
   end
   
 end

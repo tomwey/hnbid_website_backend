@@ -1,1 +1,159 @@
-Home
+    <!-- Services Section Start -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-header">          
+          <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">招标计划</h2>
+          <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+          <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">官方一站式招投标服务平台</p>
+        </div>
+        <!-- <%= raw SiteConfig.services_html %> -->
+      </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Cases Section Start -->
+    <section id="cases" class="section">
+      <!-- Container Starts -->
+      <div class="container">
+        <div class="section-header">          
+          <h2 class="section-title">优质供应商</h2>
+          <hr class="lines">
+          <p class="section-subtitle">
+            <!-- <%= SiteConfig.case_subtitle %> -->
+          </p>
+        </div>
+        <div class="row">          
+          <div class="col-md-12">
+            <!-- Portfolio Controller/Buttons -->
+            <div class="controls text-center">
+              <a class="filter active btn btn-common" data-filter="all">
+                全部 
+              </a>
+              <% @tags.each do |tag| %>
+              <a class="filter btn btn-common" data-filter=".<%= tag.code %>">
+                <%= tag.name %> 
+              </a>
+              <% end %>
+            </div>
+            <!-- Portfolio Controller/Buttons Ends-->
+          </div>
+
+          <!-- Portfolio Recent Projects -->
+          <div id="portfolio" class="row">            
+            <% @projects.each do |project| %>
+            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix <%= project.tags.join(' ') %>">
+              <div class="portfolio-item">
+                <div class="shot-item">
+                  <%= image_tag project.cover.url(:large) %>
+                  <a class="overlay lightbox" href="<%= project_path(project.uniq_id) %>" target="_blank">
+                    <i class="lnr lnr-eye item-icon"></i>
+                  </a>
+                </div>               
+              </div>
+            </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+      <!-- Container Ends -->
+    </section>
+    <!-- Cases Section End -->    
+
+    <!-- partners Section -->
+
+    <!-- partners Section Ends --> 
+
+    <!-- Team section Start -->
+    <section id="about" class="section counters">
+      <div class="container">
+        <div class="section-header">          
+          <h2 class="section-title">关于我们</h2>
+          <hr class="lines">
+          <p class="section-subtitle">ALL DREAMS COME TRUE — 所有梦想都开花</p>
+        </div>
+        <!-- <%= raw SiteConfig.about_stats %> -->
+        <div class="row"> 
+          <div class="col-lg-3 col-md-6 col-xs-12"> 
+            <div class="facts-item"> <div class="icon"> 
+              <i class="lnr lnr-clock"></i> 
+            </div> 
+            <div class="fact-count"> 
+              <h3><span class="counter">1992</span><span class="small">年</span></h3> 
+              <h4>合能地产成立</h4> 
+            </div> 
+          </div> 
+        </div> 
+        
+        <div class="col-lg-3 col-md-6 col-xs-12"> 
+          <div class="facts-item"> 
+            <div class="icon"> <i class="lnr lnr-users"></i> </div> 
+            <div class="fact-count"> 
+              <h3><span class="counter">1000</span><span class="small">人</span></h3> 
+              <h4>公司员工</h4> 
+            </div> 
+          </div> 
+        </div> 
+        
+        <div class="col-lg-3 col-md-6 col-xs-12"> 
+          <div class="facts-item"> 
+            <div class="icon"> <i class="lnr lnr-location"></i> </div> 
+            <div class="fact-count"> 
+              <h3><span class="counter">10</span><span class="small">座</span></h3> 
+              <h4>开拓城市</h4> 
+            </div> 
+          </div> 
+        </div>
+        
+        <div class="col-lg-3 col-md-6 col-xs-12"> 
+          <div class="facts-item"> 
+            <div class="icon"> <i class="lnr lnr-apartment"></i> </div> 
+            <div class="fact-count"> 
+              <h3><span class="counter">30</span><span class="small">+</span></h3> 
+              <h4>累计开发项目</h4> 
+            </div> 
+          </div> 
+        </div>
+        
+      </div> 
+      
+        
+        <div class="intros">
+         <!-- <p><%= raw SiteConfig.company_intro %></p> -->
+               <p>合能地产1992年创建于香港，发展于全国，是一家专注地产开发，业务涉及商业运营、物业服务三大领域的集团化多元发展企业，截至目前资产规模近250亿元，拥有雇员1000余人。旗下部署深圳市合能房地产开发有限公司、成都合能房地产有限公司、西安合能房地产有限公司、成都合能物业管理有限公司、成都盛佳商业经营管理有限公司等10余家分公司。</p>
+
+<h5 style="text-align:center;">5大区域 ,5座核心城市</h5>
+<p>公司以成都为集团总部核心，以成都总部为集团核心，管理经营辐射西安、深圳、长沙、宁波等其他一、二线城市,计划开拓天津、杭州、昆明等国内一、二线省会城市，逐步扩大投资区域及规模，为尽快进入“百亿俱乐部”夯实基础</p>
+        </div>
+      </div>
+    </section>
+    <!-- Team section End -->
+    
+    
+    <!-- Contact Section Start -->
+    <section id="contact" class="section" data-stellar-background-ratio="-0.2">      
+      <div class="container">
+        <div class="section-header">          
+          <h2 class="section-title">联系我们</h2>
+          <hr class="lines">
+          <p class="section-subtitle">有任何招投标的问题，都可以通过下方联系到我们！</p>
+        </div>
+        <div class="contact-info table-responsive">
+          <table class="table"> 
+            <tr> 
+              <td class="label">客服热线：</td> 
+              <td>4006-490-900</td> 
+            </tr> 
+            <tr>
+              <td class="label">集团总机：</td> 
+              <td>028-86248000</td> 
+            </tr> 
+            <tr> 
+              <td class="label">地址：</td> 
+              <td>四川省成都市青羊区西大街1号</td> 
+            </tr> 
+          </table>
+        </div>       
+      </div> 
+    </section>
+    <!-- Contact Section End -->
