@@ -7,10 +7,10 @@ class Portal::ApplicationController < ApplicationController
   # before_filter :check_user_profile
   
   private
-  def check_user_profile
-    if current_user.company_id.blank?
-      redirect_to new_company_user_path(current_user.login)
-    end
-  end
+  # def check_user_profile
+  #   if current_user.company_id.blank?
+  #     redirect_to new_company_user_path(current_user.login)
+  #   end
+  # end
   
 end

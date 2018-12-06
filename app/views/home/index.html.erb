@@ -29,10 +29,11 @@
                 <div class="login-wrap">
                   <h2 class="title">供应商登录</h2>
                   <div class="login-form">
+                    <%= notice_message %>
                     <% if user_signed_in? %>
                     <div class="user-info">
-                      <%= image_tag 'avatar/big.png', class: 'avatar' %>
-                      <p class="name"><%= current_user.login %></p>
+                      <%= image_tag current_user.logo, class: 'avatar' %>
+                      <p class="name"><%= current_user.login_name %></p>
                     </div>
                     <!-- <p class="logined-tips">您已经登录成功！</p> -->
                     <div class="logined-buttons">

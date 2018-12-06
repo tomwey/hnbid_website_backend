@@ -14,11 +14,27 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :nickname
               
   def login
+    # if self.company
+    #   self.company.name
+    # else
+      self.nickname || self.mobile
+    # end
+  end
+  
+  def login_name
     if self.company
       self.company.name
     else
-     self.nickname || self.mobile
-   end
+      self.login
+    end
+  end
+  
+  def logo
+    if self.company
+      self.company.icon.url(:big)
+    else
+      'avatar/big.png'
+    end
   end
   
   def email_required?

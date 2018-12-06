@@ -7,6 +7,10 @@ class SessionsController < Devise::SessionsController
     super
   end
   
+  def auth_options
+    { :scope => resource_name, :recall => "home#index" }
+  end
+  
   # protected
   # 
   #   def after_sign_in_path_for(resource)

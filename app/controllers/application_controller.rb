@@ -77,11 +77,19 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_in_path_for(resource)
-      home_user_path(current_user.login)
+      puts resource
+      puts '123456'
+      # puts resource.class.to_s
+      if resource.class.to_s == 'AdminUser'
+        admin_root_path
+      else
+        home_user_path(current_user.login)
+      end
+      
     end
 
     def after_sign_out_path_for(resource)
-      if resource.to_s == 'admin_user'
+      if resource.class.to_s == 'AdminUser'
         # puts '123444'
         new_admin_user_session_path
       else

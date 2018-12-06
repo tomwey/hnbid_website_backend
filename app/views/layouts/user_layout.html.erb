@@ -26,8 +26,8 @@
       <div class="col-sm-2">
         <div class="menu-wrap">
           <div class="user-info">
-            <%= image_tag 'avatar/big.png', class: 'avatar' %>
-            <p class="name"><%= current_user.login %></p>
+            <%= image_tag current_user.logo, class: 'avatar' %>
+            <p class="name"><%= current_user.login_name %></p>
             <%= link_to '退出登录', destroy_user_session_path, method: :delete, class: 'logout-link' %>
           </div>
           <ul class="menu">
