@@ -38,10 +38,11 @@ class ApplicationController < ActionController::Base
     # 需要登录
     def require_user
       if current_user.blank?
-        respond_to do |format|
-          format.html { authenticate_user! }
-          format.all  { head(:unauthorized) }
-        end
+        redirect_to root_path, alert: '您还未登录'
+        # respond_to do |format|
+        #   format.html { authenticate_user! }
+        #   format.all  { head(:unauthorized) }
+        # end
       end
     end
     
